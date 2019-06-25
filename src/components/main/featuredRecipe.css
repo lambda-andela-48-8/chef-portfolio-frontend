@@ -1,0 +1,17 @@
+.card-img{
+    width:15%;
+}
+.card{
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.card-body{
+    padding:0;
+}
+.row{
+    display:block;
+}
+.btn-danger{
+    float:right;
+    cursor:pointer;
+}
