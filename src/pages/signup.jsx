@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SignUpComponent from './../components/signup';
 
-const signup = () => {
-    return (
+
+class SignupPage extends Component {
+
+    render() {
+        return (
         <div>
         <SignUpComponent/>
         </div>
-    )
+        )
+    }
 }
-
-export default signup;
+export default SignupPage;

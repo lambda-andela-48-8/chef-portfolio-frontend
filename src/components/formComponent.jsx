@@ -9,7 +9,7 @@ const FormComponent = (WrappedComponent) => (props) => {
     return (
     <div className='wallpaper'>
     <main className='content'>
-    <div classNam='row'>
+    <div className='row'>
     <div className='col-md-offset-4'>
     <Container>
     <div className="d-flex justify-content-center">
