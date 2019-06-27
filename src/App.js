@@ -5,6 +5,8 @@ import store from './store';
 import Home from './home';
 import Login  from './pages/login';
 import SignUp from './pages/signup';
+import UserPage from './pages/user';
+import CreateRecipe from './pages/create_recipe';
 import setAuthorizationToken from './utils/setAuthorizationToken';
 import jwt from 'jsonwebtoken';
 import { setCurrentUser } from './actions/authActions';
@@ -23,6 +25,8 @@ function App() {
   <Route exact path='/' component={Home}></Route>
   <Route path='/login' component={Login}></Route>
   <Route path='/signup' component={SignUp}></Route>
+  <Route path='/user' component={UserPage}></Route>
+  <Route path='/create_recipe' component={CreateRecipe}></Route>
   </Switch>
   </BrowserRouter>
   </Provider>  

@@ -109,14 +109,14 @@ transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
   margin-top: 5px;
 }
 .cloudinary-button{
-  height:28px;
+  height:50px !important;
   background-color: #fff !important;
   border:1px solid #e8491d;
   border-radius: 4px;
   padding-left: 20px;
   padding-right: 20px;
   margin-right: 0;
-  color:#e8491d;
+  color:#e8491d !important;
   cursor:pointer;
   margin-top: 5px;
 }
@@ -707,6 +707,11 @@ text-decoration: none;
 #newsletter button{
   border: 1px solid #fff;
  
+}
+#recipe{
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('./img/chef.jpg') no-repeat 0 0;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 #boxes{
