@@ -1,13 +1,13 @@
 import React from 'react';
 import Showcase from './showcase';
-import Newsletter from './newsletter';
+import SearchBar from './searchbar';
 import './main.css';
 
 const main = () => {
     return (
     <div className='main'>
     <Showcase/>
-    <Newsletter/>
+    <SearchBar/>
     </div>
     )
 }

@@ -5,10 +5,11 @@ const newsletter = () => {
     <Fragment>
     <section id="newsletter">
     <div className="container">
-    <h1>Get Updates</h1>
+    <h1>Search</h1>
     <form>
-    <input type="email" placeholder="email" />
-    <button type="submit" className="button_1">Subscribe</button>
+    <input type="text" placeholder="search" />
+    <input type="text" placeholder="search by" />
+    <button type="submit" className="button_1">Search</button>
     </form>
     </div>
     </section>

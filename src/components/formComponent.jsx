@@ -9,6 +9,8 @@ const FormComponent = (WrappedComponent) => (props) => {
     return (
     <div className='wallpaper'>
     <main className='content'>
+    <div classNam='row'>
+    <div className='col-md-offset-4'>
     <Container>
     <div className="d-flex justify-content-center">
     <Card className='usercard'>
@@ -32,6 +34,8 @@ const FormComponent = (WrappedComponent) => (props) => {
     </Card>
     </div>    
     </Container>
+    </div>
+    </div>
     </main>
     <Footer/>
     </div>
