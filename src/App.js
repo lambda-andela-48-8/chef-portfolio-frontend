@@ -5,9 +5,17 @@ import store from './store';
 import Home from './home';
 import Login  from './pages/login';
 import SignUp from './pages/signup';
+import setAuthorizationToken from './utils/setAuthorizationToken';
+import jwt from 'jsonwebtoken';
+import { setCurrentUser } from './actions/authActions';
 
 
 function App() {
+  if(localStorage.jwt){
+    setAuthorizationToken(localStorage.jwt);
+    store.dispatch(setCurrentUser(jwt.decode(localStorage.jwt)));
+  }
+  
   return (
   <Provider store={store}>
   <BrowserRouter>
