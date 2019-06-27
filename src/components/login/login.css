@@ -75,3 +75,8 @@ input:focus{
     color:#e8491d;
     text-decoration: none;
 }
+.alerts{
+    color:#fff;
+    text-decoration: none;
+    font-size:0.75em;
+}
