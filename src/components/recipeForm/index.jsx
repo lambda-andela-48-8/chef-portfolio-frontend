@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import RecipeForm from './recipeForm';
 import FormComponent from './../formComponent';
-import addRecipeRequest from './../../actions/recipeActions';
+import { addRecipeRequest } from './../../actions/recipeActions';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addFlashMessage }  from './../../actions/flashMessages';

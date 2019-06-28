@@ -25,9 +25,7 @@ const FormComponent = (WrappedComponent) => (props) => {
     </Fragment>
     <CardFooter>
     <div className="d-flex justify-content-center links">
-    <Link to="/" className="links"><i className="fas fa-home"></i> Home</Link> | 
-    <Link to="/signup" className="links"><i className="fas fa-plus-circle"></i> Sign Up</Link> | 
-    <Link to="/login" className="links"><i className="fas fa-user"></i> Login </Link> 
+    <Link to="/" className="links"><i className="fas fa-home"></i> Back</Link>
 	</div>
     </CardFooter>
     </CardBody>

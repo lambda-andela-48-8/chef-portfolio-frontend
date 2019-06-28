@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Input } from 'reactstrap';
+import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import FlashMessagesList from './../../flash/flashMessagesList';
@@ -19,7 +20,8 @@ class SignUpForm extends Component {
           password2:'',
           errors:{},
           isLoading: false,
-          invalid: false
+          invalid: false,
+          redirect: false
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -50,6 +52,7 @@ class SignUpForm extends Component {
                         type: 'success',
                         text: 'You signed up successfully. Welcome!'
                       });
+                      this.setState({ redirect: true })
                 },
                 (error) => {
                   this.setState({ errors: error.response.data, isLoading: false });
@@ -73,6 +76,11 @@ class SignUpForm extends Component {
       }
     render() {
         const { errors } = this.state;
+        const { redirect } = this.state;
+
+        if (redirect) {
+         return <Redirect to='/'/>;
+        }
         return (
          <div className="card-body"> 
          <h3 className='d-flex justify-content-center'>Create New Account</h3> 

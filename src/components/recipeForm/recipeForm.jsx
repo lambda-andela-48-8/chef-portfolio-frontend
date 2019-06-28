@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Input, Label } from 'reactstrap';
 import PropTypes from 'prop-types';
-import FlashMessagesList from './../../flash/flashMessagesList';
+import { Redirect } from 'react-router';
 import ValidateInput from './../../validations/recipe';
+import FlashMessagesList from './../../flash/flashMessagesList';
 import ImageUpload from './../uploadImage';
 import './recipe.css';
 
@@ -18,7 +19,8 @@ class RecipeForm extends Component {
           image:'',
           errors:{},
           isLoading: false,
-          invalid: false
+          invalid: false,
+          redirect: false
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -31,10 +33,10 @@ class RecipeForm extends Component {
        }
     
     addIngredient(val){
-        const { ingredients } = this.state;
-        const newIngredients = val.split(',');
-        const finalIngredients = [...ingredients, ...newIngredients];
-        this.setState({ ingredients: finalIngredients})
+      const { ingredients } = this.state;
+      const newIngredients = val.split(',');
+      const finalIngredients = [...ingredients, ...newIngredients];
+      this.setState({ ingredients: finalIngredients})
     }
 
     setUrl(url){
@@ -61,6 +63,7 @@ class RecipeForm extends Component {
                         type: 'success',
                         text: 'Recipe added sucessfully!'
                       });
+                      this.setState({ redirect: true })
                 },
                 (error) => {
                   this.setState({ errors: error.response.data, isLoading: false });
@@ -77,6 +80,11 @@ class RecipeForm extends Component {
      }
     render() {
         const { errors } = this.state;
+        const { redirect } = this.state;
+
+        if (redirect) {
+         return <Redirect to='/user'/>;
+        }
         return (
          <div className="card-body"> 
          <h3 className='d-flex justify-content-center'>Create New Recipe</h3> 
@@ -122,7 +130,7 @@ class RecipeForm extends Component {
 		<Input type="submit" value="Add Recipe" disabled={this.state.isLoading || this.state.invalid} className="btn login_btn"/>
 		</FormGroup>
         </Form>
-      <FlashMessagesList/>
+        <FlashMessagesList/>
         </div>  
         )
     }
@@ -131,6 +139,5 @@ RecipeForm.propTypes = {
     addRecipeRequest: PropTypes.func.isRequired,
     addFlashMessage : PropTypes.func.isRequired
   };
-// add redirection back to recipe page
 
 export default RecipeForm;
