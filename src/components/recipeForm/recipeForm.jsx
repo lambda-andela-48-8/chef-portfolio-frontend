@@ -51,9 +51,9 @@ class RecipeForm extends Component {
      return isValid;
     }
 
-    onSubmit(e){
+    async onSubmit(e){
          e.preventDefault();
-         this.addIngredient(this.state.ingredientList);
+         await this.addIngredient(this.state.ingredientList);
          if(this.isValid()){
             this.setState({errors:{}, isLoading: true})
             this.props.addRecipeRequest(this.state)
@@ -124,7 +124,10 @@ class RecipeForm extends Component {
         {errors.instructions && <span className="warning">{errors.instructions}
       </span>}<br/>
       {errors.image && <span className="warning">{errors.image}
+      </span>}<br/>
+      {errors.ingredients && <span className="warning">{errors.ingredients}
       </span>}
+
 
         <FormGroup className="d-flex justify-content-center ">
 		<Input type="submit" value="Add Recipe" disabled={this.state.isLoading || this.state.invalid} className="btn login_btn"/>

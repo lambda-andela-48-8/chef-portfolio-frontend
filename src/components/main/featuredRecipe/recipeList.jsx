@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+
 import { Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, CardFooter, CardHeader, Button } from 'reactstrap';
 
@@ -14,7 +16,13 @@ const RecipeList = (props) => {
           <CardSubtitle><h5>Ingredients:</h5></CardSubtitle>
           <CardText>
           {props.item.ingredients && (props.item.ingredients).toString()}
-          <Button key={props.item.id} color='danger'>View Instructions>></Button>
+          <Button 
+            key={props.item.id} 
+            color='danger'
+            onClick={() => props.history.push(`/recipe/${props.item.id}`)}
+          >
+              View Instructions
+          </Button>
           </CardText>
         <CardFooter>{props.item.mealType}</CardFooter>
         </CardBody>
@@ -25,4 +33,4 @@ const RecipeList = (props) => {
 RecipeList.propTypes = {
     item: PropTypes.object.isRequired,
   }
-export default RecipeList;
+export default withRouter(RecipeList);

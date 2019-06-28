@@ -1,5 +1,5 @@
 import instance from './../config/axios';
-import { FETCH_RECIPE } from './../actions/types';
+import { FETCH_RECIPE, SINGLE_RECIPE} from './../actions/types';
 
 
 
@@ -27,3 +27,18 @@ export const getAllRecipe = () => {
       });
   };
 };
+
+export const singleRecipe = (id) => {
+  return (dispatch) => {
+    return instance.get(`/recipe/${id}`)
+      .then(res => {
+        dispatch({
+          type: SINGLE_RECIPE,
+          recipe: res.data.data
+        })
+      })
+      .catch(error => {
+        throw(error);
+      });
+  };
+}
