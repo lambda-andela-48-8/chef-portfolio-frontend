@@ -164,6 +164,6 @@ SignUpForm.propTypes = {
     userSignUpRequest: PropTypes.func.isRequired,
     addFlashMessage : PropTypes.func.isRequired
   };
-
+// add redirections to user page and same for login
 
 export default SignUpForm;
