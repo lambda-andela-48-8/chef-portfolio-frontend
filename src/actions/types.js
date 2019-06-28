@@ -4,3 +4,4 @@ export const SET_CURRENT_USER = 'SET_CURRENT_USER';
 export const FETCH_RECIPE = 'FETCH_RECIPE';
 export const NEW_RECIPE = 'NEW_RECIPE';
 export const SINGLE_RECIPE = 'SINGLE_RECIPE';
+export const GET_USER_RECIPE = 'GET_USER_RECIPE';

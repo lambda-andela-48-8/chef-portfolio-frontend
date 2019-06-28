@@ -83,7 +83,7 @@ class RecipeForm extends Component {
         const { redirect } = this.state;
 
         if (redirect) {
-         return <Redirect to='/user'/>;
+         return <Redirect to='/user_recipe'/>;
         }
         return (
          <div className="card-body"> 

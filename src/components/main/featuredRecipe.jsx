@@ -10,7 +10,7 @@ import './featuredRecipe.css'
 class featuredRecipe extends Component {
 
     componentDidMount () {
-        this.props.getAllRecipe();
+        this.props.getAllRecipe(this.props.user);
       }
 
     render() {
@@ -34,7 +34,8 @@ featuredRecipe.propTypes = {
   
   const mapStateToProps = state => ({
     recipes: state.recipes,
-    recipe: state.recipe
+    recipe: state.recipe,
+    userId: state.auth.user.sub
   });
 
 
