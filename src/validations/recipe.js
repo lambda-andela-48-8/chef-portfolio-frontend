@@ -4,7 +4,7 @@ import isEmpty from 'lodash/isEmpty';
 export default function validateInput(data) {
   let errors = {};
 
-  const { title, image, mealType, ingredientList, instructions } = data;
+  const { title, image, mealType, ingredients, ingredientList, instructions } = data;
 
   if (Validator.isEmpty(title)) {
     errors.title = 'Title is required';
@@ -20,6 +20,9 @@ export default function validateInput(data) {
   }
   if (!Validator.isURL(image)) {
     errors.image = 'Kindly upload recipe image';
+  }
+  if(ingredients.length === 0){
+    errors.ingredients = 'Problem adding ingredients'
   }
 
   return {

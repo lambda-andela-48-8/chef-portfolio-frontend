@@ -12,7 +12,6 @@ const header = () => {
             <Link to="/"><h3><img src={logo} width='50px' alt='logo'/><span className="highlight">Chef Portfolio</span> </h3></Link>
             </div>
              <Nav/>   
-        
         </div>
         </div>
     )

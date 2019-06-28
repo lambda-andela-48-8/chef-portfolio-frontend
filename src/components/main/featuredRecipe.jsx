@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getAllRecipe } from './../../actions/recipeActions';
+import FlashMessagesList from './../../flash/flashMessagesList';
 import Recipe from './featuredRecipe/recipe';
 
 import './featuredRecipe.css'
@@ -18,6 +19,7 @@ class featuredRecipe extends Component {
             <section id="boxes">
                 <div className="container">
                     <h1><span className="highlight">Featured </span>Recipe</h1>
+                    <FlashMessagesList/>
                     <div className='row'>
                     <Recipe recipeItem = {recipes}/>  
                     </div>
