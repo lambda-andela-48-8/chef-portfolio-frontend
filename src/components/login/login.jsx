@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Input } from 'reactstrap';
+import { Redirect } from 'react-router';
 import PropTypes from 'prop-types';
 import FlashMessagesList from './../../flash/flashMessagesList';
 import ValidateInput from './../../validations/login' 
@@ -12,7 +13,8 @@ class LoginForm extends Component {
           password: '',
           errors:{},
           isLoading: false,
-          invalid: false
+          invalid: false,
+          redirect: false
         };
         this.onChange = this.onChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
@@ -42,6 +44,7 @@ class LoginForm extends Component {
                         type: 'success',
                         text: 'You login successfully. Welcome!'
                       });
+                    this.setState({ redirect: true })
                 },
                 (error) => {
                   this.setState({ errors: error.response.data, isLoading: false });
@@ -59,6 +62,11 @@ class LoginForm extends Component {
 
     render() {
         const { errors } = this.state;
+        const { redirect } = this.state;
+
+        if (redirect) {
+         return <Redirect to='/'/>;
+        }
         return (
          <div className="card-body"> 
         <h3 className='d-flex justify-content-center'>Sign In to Chef Portfolio</h3>  
@@ -83,7 +91,7 @@ class LoginForm extends Component {
       </span>}
 
         <FormGroup className="d-flex justify-content-center ">
-		   <Input type="submit" value="Sign Up" disabled={this.state.isLoading || this.state.invalid} className="btn login_btn"/>
+		   <Input type="submit" value="Login" disabled={this.state.isLoading || this.state.invalid} className="btn login_btn"/>
 		    </FormGroup>
         </Form>
         <FlashMessagesList/>

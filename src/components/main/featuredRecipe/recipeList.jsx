@@ -6,15 +6,15 @@ import { Card, CardImg, CardText, CardBody,
 const RecipeList = (props) => {
   return (
     <div>
-      <Card key={props.item.id}>
-      <CardImg src={props.item.imageUri} alt="recipe" />
+      <Card>
+      <CardImg src={props.item.image} alt="recipe" />
         <CardBody>
         <CardHeader><h4>{props.item.title}</h4></CardHeader>
-          <CardTitle><h6>{props.item.chef}</h6></CardTitle>
+          <CardTitle><h6>{props.item.chefName}</h6></CardTitle>
           <CardSubtitle><h5>Ingredients:</h5></CardSubtitle>
           <CardText>
-          {props.item.ingredients}
-          <Button color='danger'>View Ingredients>></Button>
+          {props.item.ingredients && (props.item.ingredients).toString()}
+          <Button key={props.item.id} color='danger'>View Instructions>></Button>
           </CardText>
         <CardFooter>{props.item.mealType}</CardFooter>
         </CardBody>
