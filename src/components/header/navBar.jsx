@@ -21,7 +21,7 @@ class NavigationBar extends React.Component {
     const userLinks = (
       <ul> 
         <li>Welcome, {username}</li>
-        <li><i className="fas fa-plus-circle"></i><Link to="/user">View My Page</Link></li> 
+        <li><i className="fas fa-plus-circle"></i><Link to="/user_recipe">View My Page</Link></li> 
         <li><i className="fas fa-plus-circle"></i><Link to="/create_recipe">Create Recipe Gist</Link></li>
         <li><i className="fas fa-plus-circle"></i><a href="#" onClick={this.logout.bind(this)}>Logout</a></li>
       </ul>
@@ -44,7 +44,7 @@ class NavigationBar extends React.Component {
 }
 
 
-function mapStateToProps({auth}) {
+const mapStateToProps = ({auth}) =>{
   return {
     auth: auth.isAuthenticated,
     user: auth.user
