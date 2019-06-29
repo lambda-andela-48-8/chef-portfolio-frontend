@@ -10,7 +10,7 @@ import CreateRecipe from './pages/create_recipe';
 import setAuthorizationToken from './utils/setAuthorizationToken';
 import jwt from 'jsonwebtoken';
 import { setCurrentUser } from './actions/authActions';
-
+import SingleRecipe from './pages/single_recipe';
 
 function App() {
   if(localStorage.jwt){
@@ -21,13 +21,14 @@ function App() {
   return (
   <Provider store={store}>
   <BrowserRouter>
-  <Switch>
-  <Route exact path='/' component={Home}></Route>
-  <Route path='/login' component={Login}></Route>
-  <Route path='/signup' component={SignUp}></Route>
-  <Route path='/user' component={UserPage}></Route>
-  <Route path='/create_recipe' component={CreateRecipe}></Route>
-  </Switch>
+    <Switch>
+      <Route exact path='/' component={Home}></Route>
+      <Route path='/login' component={Login}></Route>
+      <Route path='/signup' component={SignUp}></Route>
+      <Route path='/user' component={UserPage}></Route>
+      <Route path='/create_recipe' component={CreateRecipe}></Route>
+      <Route path='/recipe/:id' component={SingleRecipe}></Route>
+    </Switch>
   </BrowserRouter>
   </Provider>  
   );
